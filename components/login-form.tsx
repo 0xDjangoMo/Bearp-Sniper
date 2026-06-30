@@ -39,7 +39,6 @@ export function LoginForm({ onLogin }: LoginFormProps) {
     <Card className="w-full max-w-sm">
       <CardHeader>
         <CardTitle>登录</CardTitle>
-        <CardDescription>登录 Bearp Sniper 选品采集器</CardDescription>
       </CardHeader>
       <CardContent>
         <form onSubmit={handleSubmit} className="space-y-4">

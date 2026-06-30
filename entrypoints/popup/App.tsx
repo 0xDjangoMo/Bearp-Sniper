@@ -1,17 +1,26 @@
-import { LoginForm } from '@/components/login-form';
+import { MemoryRouter, Routes, Route, Navigate } from 'react-router-dom';
+
+import { ProtectedRoute } from '@/src/components/ProtectedRoute';
+import Login from '@/src/pages/Login';
+import Dashboard from '@/src/pages/Dashboard';
 import './App.css';
 
 function App() {
-  const handleLogin = async (username: string, password: string) => {
-    // TODO: 接入真实登录接口
-    console.log('登录:', { username, password });
-    await new Promise((resolve) => setTimeout(resolve, 800));
-  };
-
   return (
-    <main className="flex min-h-[320px] w-[360px] items-center justify-center bg-background p-4">
-      <LoginForm onLogin={handleLogin} />
-    </main>
+    <MemoryRouter>
+      <Routes>
+        <Route path="/" element={<Login />} />
+        <Route
+          path="/dashboard"
+          element={
+            <ProtectedRoute>
+              <Dashboard />
+            </ProtectedRoute>
+          }
+        />
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Routes>
+    </MemoryRouter>
   );
 }
 

@@ -5,6 +5,7 @@ export default {
   darkMode: ['class'],
   content: [
     './entrypoints/**/*.{ts,tsx,html}',
+    './src/**/*.{ts,tsx}',
     './components/**/*.{ts,tsx}',
   ],
   theme: {
